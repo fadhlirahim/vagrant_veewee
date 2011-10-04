@@ -1,0 +1,5 @@
+Please edit your chef configuration at dna.rb. Then run
+
+	ruby dna.rb
+	
+It will then generate dna.json for you.

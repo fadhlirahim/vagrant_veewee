@@ -1,4 +1,4 @@
-Vagrant, veewee, knife-solo stuff
+Vagrant, veewee, chef-solo & knife-solo stuff
 =================================
 Where I explore the usage of Vagrant, veewee and knife-solo.
 
@@ -81,15 +81,21 @@ https://github.com/opscode/cookbooks
 http://jonathanotto.com/blog/chef-tutorial-in-minutes.html
 http://blog.carbonfive.com/2011/08/03/think-globally-stage-locally/
 
+Notes:
+
+	All cookbooks are inside mykitchen/cookbooks
+
 
 Using knife-solo
 ================
 
 Note: You don't have to use knife-solo to deploy to your VirtualBox using vagrant,
 but it's good exercise to know these steps if you want to configure to other servers
+You can read knife-solo source code here: https://github.com/matschaffer/knife-solo
 
 Commands :
 	gem install knife-solo
+	
 
 	knife configure -r . --defaults
 	
@@ -112,11 +118,11 @@ Commands :
 
 To create skeleton chef-solo setup:
 
-	knife kitchen solodemo
+	knife kitchen mykitchen
 	
 A skeleton app will be created
 
-	solodemo
+	mykitchen
 	├── cookbooks
 	├── data_bags
 	├── nodes
@@ -130,7 +136,7 @@ To create nginx cookbook
 
 Note: -o cookbooks tells it to create nginx cookbook in directory
 
-	solodemo
+	mykitchen
 	├── cookbooks
 			|-- nginx
 	├── data_bags
@@ -161,7 +167,7 @@ We're just setting up nginx in this example:
 	
 Then, edit your cookbook nginx recipe at.
 
-	solodemo
+	mykitchen
 	├── cookbooks
 			|-- nginx
 			     |-- recipes/default.rb
@@ -186,3 +192,6 @@ and then you can see the default "Welcome to Nginx" comes out.
 
 If you're deploying to a VM using vagrant, make sure you forward port 80 to any
 port than you want and can view it in your local machine browser.
+
+
+
