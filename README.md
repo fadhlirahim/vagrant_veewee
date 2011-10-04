@@ -67,7 +67,7 @@ Remove VM from VirtualBox.
 
 
 
-After that, you can pretty much configure you're VM's environment,
+After that, you can pretty much configure your VM's environment,
 even make it multi-environment VM's in one config file. 
 
 Server provisioning is done using chef-solo or puppet. I'm leaning towards chef-solo.
