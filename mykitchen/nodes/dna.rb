@@ -3,7 +3,9 @@ require 'json'
 
 dna = {
   :unix_user => 'vagrant',
+  
   :environment => {:framework_env => "production"},
+  
   :nginx => {
     :version => "1.0.8",
     :install_path => "/opt/nginx-1.0.8",
