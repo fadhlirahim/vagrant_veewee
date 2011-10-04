@@ -1,0 +1,3 @@
+[submodule "servers/teambox-vm"]
+	path = servers/teambox-vm
+	url = https://github.com/teambox/teambox-vm.git
