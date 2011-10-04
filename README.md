@@ -23,36 +23,48 @@ These commands pretty much covers everything you need to know about vagrant.
 	gem install vagrant
 	gem install vewee
 
-vagrant basebox templates
- - list out all the templates/baseboxes available from veewee
+list out all the templates/baseboxes available from veewee
 
-vagrant basebox define 'ubuntu1104' 'ubuntu-11.04-server-amd64'
+	vagrant basebox templates
 
-vagrant basebox build 'ubuntu1104'
- - build the whole freaking server from iso file. It will d/l iso file into your local machine.
-	 pretty long wait. go get a coffee + exercise.
+To create your VM VirtualBox basebox
 
-vagrant basebox validate 'ubuntu1104'
- - runs a cucumber test to check everything's alright
+	vagrant basebox define 'ubuntu1104' 'ubuntu-11.04-server-amd64'
 
-vagrant basebox export 'ubuntu1104'
- - this packages your basebox into an actual reusable VirtualBox box.
+To build the whole freaking server from iso file. It will d/l iso file into your local machine.
+pretty long wait. go get a coffee + exercise.
 
-vagrant box add 'webserver' 'ubuntu1104.box'
- - you can create many boxes or servers base on 'myubuntubox.box'
+	vagrant basebox build 'ubuntu1104'
 
-vagrant init 'webserver'
- - when you run init, it will create a Vagrantfile. This configuration file
-	 pretty much tells what should the VM contains
+Runs a test to check everything was built ok
+
+	vagrant basebox validate 'ubuntu1104'
+
+Package your basebox into an actual reusable VirtualBox box.
+
+	vagrant basebox export 'ubuntu1104'
+
+You can create many boxes or servers base on 'myubuntubox.box'. Examples:
+
+	vagrant box add 'webserver' 'ubuntu1104.box'
+ 	vagrant box add 'db' 'ubuntu1104.box'
+
+Run init, it will create a Vagrantfile. This configuration file pretty much tells what should the VM contains
+
+	vagrant init 'webserver'
+
+Runs the server on Virtualbox
 	
-vagrant up
- - runs the server on Virtualbox
+	vagrant up
+ 
+Logging in to the vm
 
-vagrant ssh
- - logging in to the vm
+	vagrant ssh
 
-vagrant destroy
- - remove VM from VirtualBox.
+Remove VM from VirtualBox.
+
+	vagrant destroy
+
 
 
 After that, you can pretty much configure you're VM's environment,
@@ -77,13 +89,16 @@ Really good video using chef-solo:
 http://www.youtube.com/watch?v=1G6bd4b91RU
 
 Other useful links:
+
 https://github.com/opscode/cookbooks
+
 http://jonathanotto.com/blog/chef-tutorial-in-minutes.html
+
 http://blog.carbonfive.com/2011/08/03/think-globally-stage-locally/
 
 Notes:
 
-	All cookbooks are inside mykitchen/cookbooks
+All cookbooks are inside mykitchen/cookbooks
 
 
 Using knife-solo
@@ -138,7 +153,7 @@ Note: -o cookbooks tells it to create nginx cookbook in directory
 
 	mykitchen
 	├── cookbooks
-			|-- nginx
+		|-- nginx
 	├── data_bags
 	├── nodes
 	├── roles
@@ -168,9 +183,9 @@ We're just setting up nginx in this example:
 Then, edit your cookbook nginx recipe at.
 
 	mykitchen
-	├── cookbooks
-			|-- nginx
-			     |-- recipes/default.rb
+	├─ cookbooks
+		|- nginx
+		  |- recipes/default.rb
 
 Inside default.rb
 	# This tells to install the nginx package
@@ -192,6 +207,20 @@ and then you can see the default "Welcome to Nginx" comes out.
 
 If you're deploying to a VM using vagrant, make sure you forward port 80 to any
 port than you want and can view it in your local machine browser.
+
+Note:
+
+I've created a ruby file called dna.rb inside mykitchen/nodes. You can run
+
+	ruby dna.rb
+
+And this will generate dna.json file for you. This file will also be used by Vagrant configuration so you don't have to write specifically for vagrant and still want to retain a node json file to use outside vagrant.
+
+
+
+TODO
+====
+Update will relevant cookbooks at put them in mykitchen and update the dna.rb accordingly
 
 
 
