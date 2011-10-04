@@ -44,7 +44,7 @@ Package your basebox into an actual reusable VirtualBox box.
 
 	vagrant basebox export 'ubuntu1104'
 
-You can create many boxes or servers base on 'myubuntubox.box'. Examples:
+You can create many boxes or servers base on 'ubuntu1104.box'. Examples:
 
 	vagrant box add 'webserver' 'ubuntu1104.box'
  	vagrant box add 'db' 'ubuntu1104.box'
