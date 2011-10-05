@@ -4,8 +4,19 @@ Where I explore the usage of Vagrant, veewee and knife-solo.
 
 Prerequisite before usage: Install VirtualBox first. This repo uses Virtualbox 4.1.2 & vagrant 0.8.7
 
+Overview
+
+This repo has 2 main folders. 
+
+  The servers/ folder is where I put the vagrant configuration files. Inside it I also include
+a git submodule to teambox_vm (which I fork from their repo). The other one is a folder called accura which contains
+another vagrant configuration. It's setup this way so that I can create multiple servers configuration in the future
+if I wanted to.
+
+  The mykitchen/ folder is a generated folder by knife-solo. I will explain how to use it later by this end of this readme file.
 Although vagrant has the built-in integration with chef, I wanted to use a tool (using knife-solo) if I wanted to deploy
 my server configurations to any servers in the future.
+
 
 
 Vagrant & Veewee
