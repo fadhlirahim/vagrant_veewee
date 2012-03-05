@@ -32,7 +32,7 @@ The best thing about veewee is that it gives you templates for your baseboxes
 These commands pretty much covers everything you need to know about vagrant.
 
 	gem install vagrant
-	gem install vewee
+	gem install veewee
 
 list out all the templates/baseboxes available from veewee
 
